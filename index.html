@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Fotoğraf Galerisi</title>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0f0f0f;
+            font-family: Arial;
+            color: white;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 40px;
+            color: #00ffe1;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        /* Büyük Gösterme Ekranı */
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup img {
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>Fotoğraf Galerim</h1>
+
+<div class="gallery">
+    <div class="gallery">
+    <img src="foto1.jpg" onclick="show(this.src)">
+    <img src="foto2.jpg" onclick="show(this.src)">
+    <img src="foto3.jpg" onclick="show(this.src)">
+</div>
+
+    <img src="https://picsum.photos/800/600?random=4" onclick="show(this.src)">
+    <img src="https://picsum.photos/800/600?random=5" onclick="show(this.src)">
+    <img src="https://picsum.photos/800/600?random=6" onclick="show(this.src)">
+</div>
+
+<div class="popup" id="popup" onclick="hide()">
+    <img id="popupImg">
+</div>
+
+<script>
+    function show(src) {
+        document.getElementById("popupImg").src = src;
+        document.getElementById("popup").style.display = "flex";
+    }
+    function hide() {
+        document.getElementById("popup").style.display = "none";
+    }
+</script>
+
+</body>
+</html>
