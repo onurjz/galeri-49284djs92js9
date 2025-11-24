@@ -8,7 +8,7 @@
     <style>
         body {
             margin: 0;
-            background: #0f0f0f;
+            background: #3a0066; /* MOR ARKA PLAN */
             font-family: Arial;
             color: white;
             overflow-x: hidden;
@@ -20,7 +20,7 @@
             font-size: 40px;
             color: #ffffff;
             position: relative;
-            z-index: 10; /* yazıyı öne getir */
+            z-index: 10; 
         }
 
         @media (max-width: 480px) {
@@ -35,7 +35,7 @@
             gap: 25px;
             padding: 20px;
             position: relative;
-            z-index: 5; /* galeriyi de öne al */
+            z-index: 5;
         }
 
         .gallery img {
@@ -72,12 +72,12 @@
         .heart {
             position: fixed;
             top: -10px;
-            font-size: 30px; /* daha büyük kalpler */
-            color: white; /* kalpler BEYAZ */
+            font-size: 30px;
+            color: white; /* beyaz kalpler */
             opacity: 0.8;
             animation: fall 3s linear forwards;
             pointer-events: none;
-            z-index: 0; /* kalpleri arkaya gönder */
+            z-index: 0; 
         }
 
         @keyframes fall {
@@ -120,7 +120,7 @@
     function createHeart() {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.innerHTML = "🤍"; // beyaz kalp
+        heart.innerHTML = "🤍"; 
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
         document.body.appendChild(heart);
@@ -133,6 +133,8 @@
 
 </body>
 </html>
+
+
 
 
 
