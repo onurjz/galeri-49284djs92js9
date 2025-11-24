@@ -8,7 +8,7 @@
     <style>
         body {
             margin: 0;
-            background: #3a0066; /* MOR ARKA PLAN */
+            background: #000000; /* SİYAH */
             font-family: Arial;
             color: white;
             overflow-x: hidden;
@@ -18,9 +18,7 @@
             text-align: center;
             padding: 30px 0;
             font-size: 40px;
-            color: #ffffff;
-            position: relative;
-            z-index: 10; 
+            color: #ffffff; /* Beyaz */
         }
 
         @media (max-width: 480px) {
@@ -34,8 +32,6 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             padding: 20px;
-            position: relative;
-            z-index: 5;
         }
 
         .gallery img {
@@ -51,6 +47,7 @@
             transform: scale(1.05);
         }
 
+        /* Foto açılınca büyük gösterme ekranı */
         .popup {
             display: none;
             position: fixed;
@@ -59,7 +56,6 @@
             background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
-            z-index: 20;
         }
 
         .popup img {
@@ -68,16 +64,15 @@
             border-radius: 10px;
         }
 
-        /* ❤️ KALP YAĞMURU CSS */
+        /* 💕 BEYAZ KALP YAĞMURU */
         .heart {
             position: fixed;
             top: -10px;
-            font-size: 30px;
-            color: white; /* beyaz kalpler */
-            opacity: 0.8;
+            font-size: 25px;  /* Kalpleri büyüttüm */
+            color: #ffffff;   /* Beyaz kalp */
+            opacity: 0.9;
             animation: fall 3s linear forwards;
             pointer-events: none;
-            z-index: 0; 
         }
 
         @keyframes fall {
@@ -116,16 +111,16 @@
         document.getElementById("popup").style.display = "none";
     }
 
-    /* ❤️ KALP YAĞMURU JS */
+    /* ❤️ BEYAZ KALP YAĞMURU */
     function createHeart() {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.innerHTML = "🤍"; 
+        heart.innerHTML = "🤍"; // Beyaz kalp
         heart.style.left = Math.random() * 100 + "vw";
-        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        heart.style.animationDuration = (Math.random() * 2 + 3) + "s";
         document.body.appendChild(heart);
 
-        setTimeout(() => heart.remove(), 3000);
+        setTimeout(() => heart.remove(), 3500);
     }
 
     setInterval(createHeart, 300);
@@ -133,6 +128,8 @@
 
 </body>
 </html>
+
+
 
 
 
