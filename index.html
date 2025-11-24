@@ -1,49 +1,127 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Galeri</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotoğraf Galerisi</title>
 
-<style>
-    body {
-        background: #111;
-        margin: 0;
-        font-family: Arial, sans-serif;
+    <style>
+        body {
+            margin: 0;
+            background: #0f0f0f;
+            font-family: Arial;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 30px 0;
+            font-size: 40px;
+            color: #ffffff;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup img {
+            width: 80%;
+            max-width: 900px;
+            border-radius: 10px;
+        }
+
+        /* ❤️ Beyaz daha büyük kalpler */
+        .heart {
+            position: fixed;
+            top: -10px;
+            font-size: 35px; /* KALP BOYUTU */
+            color: #ffffff; /* BEYAZ KALP */
+            opacity: 0.85;
+            animation: fall 3s linear forwards;
+            pointer-events: none;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(120vh);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<h1>🤍 SENİ ÇOK SEVİYORUM 🤍</h1>
+
+<div class="gallery">
+    <img src="WhatsApp Image 2025-11-24 at 05.51.31.jpeg" onclick="show(this.src)">
+    <img src="WhatsApp Image 2025-11-24 at 05.51.51.jpeg" onclick="show(this.src)">
+    <img src="WhatsApp Image 2025-11-24 at 05.52.21.jpeg" onclick="show(this.src)">
+    <img src="WhatsApp Image 2025-11-24 at 05.53.02.jpeg" onclick="show(this.src)">
+    <img src="WhatsApp Image 2025-11-24 at 05.53.20.jpeg" onclick="show(this.src)">
+    <img src="WhatsApp Image 2025-11-24 at 05.53.33.jpeg" onclick="show(this.src)">
+</div>
+
+<div class="popup" id="popup" onclick="hide()">
+    <img id="popupImg">
+</div>
+
+<script>
+    function show(src) {
+        document.getElementById("popupImg").src = src;
+        document.getElementById("popup").style.display = "flex";
     }
 
-    .gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-        gap: 18px; /* Fotoğraflar arasındaki boşluk */
-        padding: 20px;
+    function hide() {
+        document.getElementById("popup").style.display = "none";
     }
 
-    .item {
-        position: relative;
-        border-radius: 14px;
-        overflow: hidden;
-        cursor: pointer;
-        transition: transform 0.25s ease;
+    /* ❤️ Beyaz büyük kalpler yağmuru */
+    function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "🤍"; 
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 3000);
     }
 
-    .item:hover {
-        transform: scale(1.04);
-    }
+    setInterval(createHeart, 250);
+</script>
 
-    .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        display: block;
-    }
+</body>
+</html>
 
-    /* --- KALPLER BURADA! --- */
-    .heart {
-        position: absolute;
-        bottom: 10px;
-        right: 12px;
-        font-size: 45px;     /* KALP BOYUTU → artırılabilir */
 
 
 
