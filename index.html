@@ -9,7 +9,7 @@
         body {
             margin: 0;
             background: #0f0f0f;
-            font-family: Arial;
+            font-family: Arial, sans-serif;
             color: white;
             overflow-x: hidden;
         }
@@ -47,11 +47,14 @@
             transform: scale(1.05);
         }
 
+        /* Popup görüntü */
         .popup {
             display: none;
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0; 
+            left: 0;
+            width: 100%; 
+            height: 100%;
             background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
@@ -63,7 +66,7 @@
             border-radius: 10px;
         }
 
-        /* ❤️ KALP YAĞMURU CSS */
+        /* ❤️ Kalp yağmuru */
         .heart {
             position: fixed;
             top: -10px;
@@ -101,6 +104,7 @@
 </div>
 
 <script>
+    // Popup gösterme
     function show(src) {
         document.getElementById("popupImg").src = src;
         document.getElementById("popup").style.display = "flex";
@@ -110,7 +114,7 @@
         document.getElementById("popup").style.display = "none";
     }
 
-    /* ❤️ KALP YAĞMURU JS */
+    // ❤️ Kalp yağmuru
     function createHeart() {
         const heart = document.createElement("div");
         heart.classList.add("heart");
@@ -127,6 +131,7 @@
 
 </body>
 </html>
+
 
 
 
