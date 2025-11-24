@@ -19,6 +19,14 @@
             padding: 30px 0;
             font-size: 40px;
             color: #ffffff;
+            position: relative;
+            z-index: 10; /* yazıyı öne getir */
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
         }
 
         .gallery {
@@ -26,6 +34,8 @@
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 25px;
             padding: 20px;
+            position: relative;
+            z-index: 5; /* galeriyi de öne al */
         }
 
         .gallery img {
@@ -49,6 +59,7 @@
             background: rgba(0,0,0,0.8);
             justify-content: center;
             align-items: center;
+            z-index: 20;
         }
 
         .popup img {
@@ -57,15 +68,16 @@
             border-radius: 10px;
         }
 
-        /* ❤️ Beyaz daha büyük kalpler */
+        /* ❤️ KALP YAĞMURU CSS */
         .heart {
             position: fixed;
             top: -10px;
-            font-size: 35px; /* KALP BOYUTU */
-            color: #ffffff; /* BEYAZ KALP */
-            opacity: 0.85;
+            font-size: 30px; /* daha büyük kalpler */
+            color: white; /* kalpler BEYAZ */
+            opacity: 0.8;
             animation: fall 3s linear forwards;
             pointer-events: none;
+            z-index: 0; /* kalpleri arkaya gönder */
         }
 
         @keyframes fall {
@@ -104,11 +116,11 @@
         document.getElementById("popup").style.display = "none";
     }
 
-    /* ❤️ Beyaz büyük kalpler yağmuru */
+    /* ❤️ KALP YAĞMURU JS */
     function createHeart() {
         const heart = document.createElement("div");
         heart.classList.add("heart");
-        heart.innerHTML = "🤍"; 
+        heart.innerHTML = "🤍"; // beyaz kalp
         heart.style.left = Math.random() * 100 + "vw";
         heart.style.animationDuration = (Math.random() * 2 + 2) + "s";
         document.body.appendChild(heart);
@@ -116,11 +128,12 @@
         setTimeout(() => heart.remove(), 3000);
     }
 
-    setInterval(createHeart, 250);
+    setInterval(createHeart, 300);
 </script>
 
 </body>
 </html>
+
 
 
 
